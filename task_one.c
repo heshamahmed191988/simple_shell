@@ -17,19 +17,19 @@ fflush(stdout);
 size_t bufsize = 0;
 getline(&command, &bufsize, stdin);
 
-// Remove newline character from input
+/** Remove newline character from input*/
 command[strcspn(command, "\n")] = '\0';
 
-// Exit on EOF (Ctrl+D)
+/** Exit on EOF (Ctrl+D)*/
 if (!command) {
 break;
 }
 
-// Execute the command
+/** Execute the command*/
 pid_t pid = fork();
 
 if (pid == 0) {
-// Child process
+/** Child process*/
 args[0] = command;
 args[1] = NULL;
 
@@ -41,13 +41,13 @@ exit(EXIT_FAILURE);
 }
 else if (pid < 0)
 {
-// Error occurred
+/** Error occurred*/
 fprintf(stderr, "Error: Fork failed.\n");
 exit(EXIT_FAILURE);
 }
 else
 {
-// Parent process
+/** Parent process*/
 waitpid(pid, &killch, 0);
 }
 }
