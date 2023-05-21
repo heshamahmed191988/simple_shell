@@ -21,14 +21,14 @@ getline(&command, &bufsize, stdin);
 command[strcspn(command, "\n")] = '\0';
 
 /** Exit on EOF (Ctrl+D)*/
-if (!command) {
+if (!command)
 break;
-}
 
 /** Execute the command*/
 pid_t pid = fork();
 
-if (pid == 0) {
+if (pid == 0)
+{
 /** Child process*/
 args[0] = command;
 args[1] = NULL;
