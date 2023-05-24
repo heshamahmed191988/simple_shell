@@ -20,16 +20,20 @@ void eval(char *cmdline)
 
 	if (argv[0] == NULL)
 		return; /* ignore empty lines */
-
 	if (!builtin_command(argv))
-		{ /* if not a built-in command */
-		if ((pid = fork()) == 0)
+	{ /* if not a built-in command */
+		pid = fork();
+		if (pid == 0)
 		{ /* child runs the command */
-			if (execvp(argv[0], argv) < 0)
-			{ /* execute the command */
+		int status = execvp(argv[0], argv);
+
+		if (status < 0)
+
+		{ /* execute the command */
 			printf("%s: Command not found.\n", argv[0]); /* handle errors */
 			exit(0);
-			}
+		}
+
 		}
 
 		/* parent waits for foreground job to terminate */

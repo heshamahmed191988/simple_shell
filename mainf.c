@@ -6,7 +6,7 @@
   * Return: zero
   */
 
-int main()
+int main(void)
 {
 	char cmdline[MAXLINE]; /* buffer for the command line */
 

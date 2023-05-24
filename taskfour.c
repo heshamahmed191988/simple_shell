@@ -36,10 +36,13 @@ int parseline(char *buf, char **argv)
 		return (1);
 	}
 
-	/* check if background job */
-	if ((bg = (*argv[argc - 1] == '&')) != 0)
-		argv[--argc] = NULL;
-	{
+	/* check if the job should run in the background */
+bg = (*argv[argc - 1] == '&');
+if (bg)
+{
+    /* remove the '&' argument from the argument list */
+argc--;
+argv[argc] = NULL;
+}
 	return (bg);
 	}
-}
