@@ -21,12 +21,12 @@ void eval(char *cmdline)
 	if (argv[0] == NULL)
 		return; /* ignore empty lines */
 
-		if (!builtin_command(argv))
+	if (!builtin_command(argv))
 		{ /* if not a built-in command */
 		if ((pid = fork()) == 0)
 		{ /* child runs the command */
-		if (execvp(argv[0], argv) < 0)
-		{ /* execute the command */
+			if (execvp(argv[0], argv) < 0)
+			{ /* execute the command */
 			printf("%s: Command not found.\n", argv[0]); /* handle errors */
 			exit(0);
 			}

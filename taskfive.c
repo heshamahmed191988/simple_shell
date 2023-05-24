@@ -16,7 +16,7 @@ int builtin_command(char **argv)
 	}
 	if (!strcmp(argv[0], "env"))
 	{ /* env command */
-		char **environ; /* pointer to environment variables array */
+		extern char **environ; /* pointer to environment variables array */
 		int i = 0;
 
 		while (environ[i])
