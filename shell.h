@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <math.h>
 #include <sys/wait.h>
 
 #define MAXLINE 1024 /* max length of a command line */
@@ -18,5 +19,8 @@ int parseline(char *buf, char **argv);
 
 /* check if the command is a built-in command and execute it if so */
 int builtin_command(char **argv);
+
+/* Declare your function prototype here */
+int print_environment_variables(void);
 
 #endif /* SHELL_H */
