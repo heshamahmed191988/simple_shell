@@ -1,5 +1,12 @@
 #include "shell.h"
 
+/**
+  * builtin_command - builtin
+  * @argv: value
+  *
+  * Return: zero
+  */
+
 /* check if the command is a built-in command and execute it if so */
 int builtin_command(char **argv)
 {

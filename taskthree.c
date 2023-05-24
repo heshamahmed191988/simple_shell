@@ -1,5 +1,12 @@
 #include "shell.h"
 
+/**
+  * eval - eval
+  * @cmdline: cmd line
+  *
+  * Return: null acording to void
+  */
+
 /* evaluate a command line */
 void eval(char *cmdline)
 {
